@@ -1,0 +1,211 @@
+@import "tailwindcss";
+
+/* Mode gelap: kelas .dark di <html> (diatur ThemeContext) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ------------------------------------------------------------------
+ * Palet dasar (dari logo desa) — lihat STYLE_GUIDE.md §2.1
+ * ------------------------------------------------------------------ */
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+
+  /* Biru Laut */
+  --color-primary-50: #e6f4fb;
+  --color-primary-100: #cce8f6;
+  --color-primary-200: #99d1ee;
+  --color-primary-300: #66bbe5;
+  --color-primary-400: #33a8e0;
+  --color-primary-500: #008dd2;
+  --color-primary-600: #0077b6;
+  --color-primary-700: #005f92;
+  --color-primary-800: #00486f;
+  --color-primary-900: #00324d;
+  --color-primary-950: #001f31;
+
+  /* Biru Bahari */
+  --color-bahari-50: #eef2f8;
+  --color-bahari-100: #d6dfec;
+  --color-bahari-200: #adbfd9;
+  --color-bahari-300: #809bc2;
+  --color-bahari-400: #5879a8;
+  --color-bahari-500: #3b5f92;
+  --color-bahari-600: #2b4d7a;
+  --color-bahari-700: #233f65;
+  --color-bahari-800: #1b304e;
+  --color-bahari-900: #132239;
+  --color-bahari-950: #0a1222;
+
+  /* Biru Langit */
+  --color-langit-50: #f0f8fd;
+  --color-langit-100: #e0f1fb;
+  --color-langit-200: #bfe3f7;
+  --color-langit-300: #77c6ef;
+  --color-langit-400: #4db3e8;
+  --color-langit-500: #2a9fdc;
+
+  /* Karang (jarang dipakai) */
+  --color-karang-500: #047ec7;
+  --color-karang-900: #020266;
+
+  /* Status */
+  --color-success: #15803d;
+  --color-warning: #b45309;
+  --color-danger: #b91c1c;
+}
+
+/* ------------------------------------------------------------------
+ * Token semantik — WAJIB dipakai di komponen (§2.2)
+ * Nilainya diisi oleh :root (terang) dan .dark (gelap).
+ * ------------------------------------------------------------------ */
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-border: var(--border);
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-heading: var(--heading);
+  --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-fg);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-soft: var(--accent-soft);
+  --color-link: var(--link);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-fg: var(--sidebar-fg);
+  --color-ring: var(--ring);
+  --color-success-fg: var(--success-fg);
+  --color-warning-fg: var(--warning-fg);
+  --color-danger-fg: var(--danger-fg);
+  --color-ink: var(--ink);
+  --color-ink-fg: var(--ink-fg);
+  --color-pastel-biru: var(--pastel-biru);
+  --color-pastel-hijau: var(--pastel-hijau);
+  --color-pastel-ungu: var(--pastel-ungu);
+  --color-pastel-jingga: var(--pastel-jingga);
+  --color-pastel-merah: var(--pastel-merah);
+
+  --shadow-card: var(--shadow-card-value);
+  --shadow-pop: var(--shadow-pop-value);
+  --shadow-glow: var(--shadow-glow-value);
+}
+
+:root {
+  color-scheme: light;
+  --bg: #f3f6fa;
+  --surface: #ffffff;
+  --surface-2: #f1f4f9;
+  --border: #e3e9f1;
+  --fg: #0f1b2d;
+  --fg-muted: #64748b;
+  --heading: #1b304e;
+  --accent: #0077b6;
+  --accent-fg: #ffffff;
+  --accent-hover: #005f92;
+  --accent-soft: #e6f4fb;
+  --link: #005f92;
+  --sidebar: #ffffff;
+  --sidebar-fg: #51627a;
+  --ring: #008dd2;
+  --success-fg: #15803d;
+  --warning-fg: #b45309;
+  --danger-fg: #b91c1c;
+  /* Tombol pil gelap & ubin pastel (tampilan mobile) */
+  --ink: #005f92;
+  --ink-fg: #ffffff;
+  --pastel-biru: #dceffa;
+  --pastel-hijau: #dcf3ea;
+  --pastel-ungu: #e6e4fb;
+  --pastel-jingga: #fde8dc;
+  --pastel-merah: #fcdfe1;
+
+  --shadow-card-value:
+    0 1px 2px rgb(27 48 78 / 0.04), 0 4px 16px -4px rgb(27 48 78 / 0.08);
+  --shadow-pop-value:
+    0 4px 8px -2px rgb(27 48 78 / 0.08), 0 20px 48px -12px rgb(27 48 78 / 0.22);
+  --shadow-glow-value: 0 6px 16px -6px rgb(0 119 182 / 0.55);
+}
+
+.dark {
+  color-scheme: dark;
+  --bg: #0a1222;
+  --surface: #101b2e;
+  --surface-2: #17243b;
+  --border: #22334f;
+  --fg: #e6edf6;
+  --fg-muted: #94a6be;
+  --heading: #f0f6fc;
+  --accent: #33a8e0;
+  --accent-fg: #0a1222;
+  --accent-hover: #66bbe5;
+  --accent-soft: #0f2a42;
+  --link: #77c6ef;
+  --sidebar: #0d1729;
+  --sidebar-fg: #94a6be;
+  --ring: #33a8e0;
+  --success-fg: #4ade80;
+  --warning-fg: #fbbf24;
+  --danger-fg: #f87171;
+  --ink: #33a8e0;
+  --ink-fg: #e6edf6;
+  --pastel-biru: #12304a;
+  --pastel-hijau: #133a32;
+  --pastel-ungu: #26244a;
+  --pastel-jingga: #3e2a20;
+  --pastel-merah: #42202a;
+
+  /* Di mode gelap kartu diberi garis 1px agar tetap terlihat */
+  --shadow-card-value: 0 0 0 1px #22334f, 0 4px 16px -4px rgb(0 0 0 / 0.5);
+  --shadow-pop-value: 0 0 0 1px #22334f, 0 20px 48px -12px rgb(0 0 0 / 0.7);
+  --shadow-glow-value: 0 6px 18px -6px rgb(51 168 224 / 0.45);
+}
+
+/* ------------------------------------------------------------------
+ * Gradasi aksen (§2.4)
+ * ------------------------------------------------------------------ */
+@utility bg-accent-gradient {
+  /* primary-600 -> primary-700, teks putih ≥ 4.5:1 */
+  background-image: linear-gradient(
+    135deg,
+    var(--color-primary-600),
+    var(--color-primary-700)
+  );
+}
+
+.dark .bg-accent-gradient {
+  /* lebih terang di mode gelap */
+  background-image: linear-gradient(
+    135deg,
+    var(--color-primary-300),
+    var(--color-primary-500)
+  );
+}
+
+/* ------------------------------------------------------------------
+ * Dasar
+ * ------------------------------------------------------------------ */
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-bg font-sans text-fg antialiased;
+  }
+}
+
+/* Peta Leaflet di mode gelap (§5) */
+.dark .peta-lokasi .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) brightness(0.9) contrast(0.9);
+}
+
+/* Hormati prefers-reduced-motion (§11) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
