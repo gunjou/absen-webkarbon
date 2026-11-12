@@ -2,8 +2,8 @@ node_modules
 dist
 dist-ssr
 *.local
+deploy-absen.sh
 .env
-.env.*
 !.env.example
 .DS_Store
 *.log

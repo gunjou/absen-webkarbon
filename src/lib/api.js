@@ -1,4 +1,4 @@
-const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const BASE_URL = import.meta.env.VITE_API_URL;
 
 /**
  * Panggil API backend. Sukses → isi `data` dari envelope; gagal → Error berisi `message`
@@ -16,13 +16,18 @@ export async function api(path, { method = "GET", body, token } = {}) {
       body: body && JSON.stringify(body),
     });
   } catch {
-    throw new Error("Tidak dapat terhubung ke server. Periksa koneksi internet.");
+    throw new Error(
+      "Tidak dapat terhubung ke server. Periksa koneksi internet.",
+    );
   }
   const json = await res.json().catch(() => null);
   if (!res.ok) {
-    throw Object.assign(new Error(json?.message ?? `Terjadi kesalahan (${res.status})`), {
-      code: json?.code,
-    });
+    throw Object.assign(
+      new Error(json?.message ?? `Terjadi kesalahan (${res.status})`),
+      {
+        code: json?.code,
+      },
+    );
   }
   return json?.data;
 }
