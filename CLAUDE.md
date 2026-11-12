@@ -1,6 +1,6 @@
 # absen-webkarbon
 
-Aplikasi presensi pegawai Kantor Desa Karang Bongkot: absen masuk/pulang, riwayat, profile. **Hanya fitur untuk pegawai** (permission `absensi.self`); endpoint admin/master di spec tidak dipakai.
+Aplikasi presensi pegawai Kantor Desa Karang Bongkot: absen masuk/pulang, riwayat, profile. **Hanya fitur untuk pegawai** (permission `absensi.self` + `perizinan.self`, endpoint `/presensi/*` dan `/auth/*`); endpoint admin/master di spec tidak dipakai.
 
 ## Aturan
 
@@ -16,4 +16,4 @@ React 19 + Vite, Tailwind v4 (konfigurasi di `src/index.css`), react-router 7, r
 
 ## Status
 
-Dibangun ulang dari awal. Tersisa: halaman Login (`POST /auth/login` dengan `client: "absensi"` via `src/lib/api.js`; sesi `{ token, refresh_token, user }` di `localStorage["sesi"]`), Dashboard dummy, dan sistem gaya (`src/index.css`, `src/components/ui`, tema terang/gelap, toaster). Kode hanya `.jsx`/`.js`. Kontrak API backend untuk nanti: `docs/openapi.json` + `docs/API_GUIDE.md`.
+Dibangun ulang dari awal. Ada: halaman Login (`POST /auth/login` dengan `client: "absensi"` via `src/lib/api.js`; sesi `{ token, refresh_token, user }` di `localStorage["sesi"]`), Dashboard (`GET /presensi/hari-ini`), halaman Absen `/absen` (state `{ jenis, gpsMax }`; kamera + GPS → `POST /presensi`, gagal sebelum kirim → `POST /presensi/gagal`), `AppLayout` (navbar bawah Beranda/Riwayat/Izin/Profile; Riwayat per bulan + ringkasan + foto selfie; Izin: daftar + filter status `/izin`, formulir izin/koreksi `/izin/baru`, detail + batal + unduh lampiran `/izin/:id`; Profile berisi data akun + email + peran, tema, logout; `AuthProvider` memanggil `GET /auth/me` saat app dibuka untuk menyegarkan `sesi.user`), `api()` memasang token otomatis + refresh saat `TOKEN_EXPIRED` (gagal → event `sesi-habis` → logout; respons non-JSON → Blob), dan sistem gaya (`src/index.css`, `src/components/ui`, tema terang/gelap, toaster). Kode hanya `.jsx`/`.js`. Kontrak API backend untuk nanti: `docs/openapi.json` + `docs/API_GUIDE.md`.

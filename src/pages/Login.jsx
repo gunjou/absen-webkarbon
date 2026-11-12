@@ -12,6 +12,7 @@ import {
 } from "@/components/ui";
 import { ThemeToggle } from "@/components/layout/ThemeToggle";
 import { useAuth } from "@/context/AuthContext";
+import { BelahKetupat } from "@/components/layout/Motif";
 import logoDesa from "@/assets/logo-karang-bongkot.png";
 
 export default function Login() {
@@ -169,20 +170,5 @@ function LatarSongket() {
         className="absolute inset-x-0 top-full h-64 w-full text-heading/[0.05] [mask-image:linear-gradient(to_bottom,black,transparent)]"
       />
     </div>
-  );
-}
-
-// warna motif = currentColor dari className svg ini (pattern harus di svg yang sama)
-function BelahKetupat({ id, className }) {
-  return (
-    <svg className={className}>
-      <defs>
-        <pattern id={id} width="36" height="36" patternUnits="userSpaceOnUse">
-          <path d="M18 2 34 18 18 34 2 18Z" fill="none" stroke="currentColor" />
-          <path d="M18 12 24 18 18 24 12 18Z" fill="currentColor" opacity=".5" />
-        </pattern>
-      </defs>
-      <rect width="100%" height="100%" fill={`url(#${id})`} />
-    </svg>
   );
 }
