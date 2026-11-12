@@ -1,23 +1,26 @@
-import { Route, Routes } from "react-router-dom";
-import { MobileLayout } from "@/components/layout/MobileLayout";
+import { Navigate, Route, Routes } from "react-router-dom";
+import { useAuth } from "@/context/AuthContext";
 import Dashboard from "@/pages/Dashboard";
-import Izin from "@/pages/Izin";
 import Login from "@/pages/Login";
-import Profile from "@/pages/Profile";
-import Riwayat from "@/pages/Riwayat";
-import NotFound from "@/pages/NotFound";
+
+function WajibLogin({ children }) {
+  const { pengguna } = useAuth();
+  return pengguna ? children : <Navigate to="/login" replace />;
+}
 
 export default function App() {
   return (
     <Routes>
       <Route path="login" element={<Login />} />
-      <Route element={<MobileLayout />}>
-        <Route index element={<Dashboard />} />
-        <Route path="riwayat" element={<Riwayat />} />
-        <Route path="izin" element={<Izin />} />
-        <Route path="profile" element={<Profile />} />
-        <Route path="*" element={<NotFound />} />
-      </Route>
+      <Route
+        index
+        element={
+          <WajibLogin>
+            <Dashboard />
+          </WajibLogin>
+        }
+      />
+      <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
 }

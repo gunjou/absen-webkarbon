@@ -7,4 +7,3 @@ dist-ssr
 !.env.example
 .DS_Store
 *.log
-openapi.json
