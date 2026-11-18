@@ -111,7 +111,7 @@ Backend tetap mengecek; menyembunyikan menu hanya untuk UX.
 | `jabatan.manage`, `lokasi_kantor.manage`, `jadwal_kerja.manage`, `jenis_izin.manage`, `hari_libur.manage` | Master data | `/master/<x>...` |
 
 Role bawaan: `SUPER_ADMIN` (`*`), `ADMIN` (semua kecuali settings & review izin), `SEKDES`/`KADES`
-(lihat pegawai & absensi, review izin), `PEGAWAI` (absen & izin sendiri). Satu akun bisa punya beberapa role;
+(lihat pegawai, absensi, log gagal, penduduk & surat; review izin; koreksi absen — tanpa master, pengaturan & akun), `PEGAWAI` (absen & izin sendiri). Satu akun bisa punya beberapa role;
 permission-nya digabung (mis. Sekdes yang juga absen = `SEKDES` + `PEGAWAI`).
 
 Aturan khusus yang akan ditolak backend (tampilkan `message`):

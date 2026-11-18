@@ -35,8 +35,8 @@ function salam(d) {
 /** Tentukan apa yang tampil di area aksi; urutan mengikuti aturan API_GUIDE §4. */
 function aksiHariIni(data, sekarang) {
   if (!data.hari_kerja) return { jenis: "libur" };
-  if (data.izin) return { jenis: "izin" };
   if (data.masuk && data.pulang) return { jenis: "selesai" };
+  if (data.izin && !data.masuk) return { jenis: "izin" }; // sudah masuk → tetap bisa absen pulang
   if (!data.pegawai?.face_enrolled) return { jenis: "wajah" };
   const jam = jamHHMM(sekarang);
   const { jadwal } = data;

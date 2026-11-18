@@ -3,6 +3,7 @@ dist
 dist-ssr
 *.local
 deploy-absen.sh
+/docs/img
 .env
 !.env.example
 .DS_Store

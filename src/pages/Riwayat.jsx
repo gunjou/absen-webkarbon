@@ -134,7 +134,7 @@ function TombolBulat({ label, children, ...props }) {
 function Ringkasan({ hari }) {
   const hitung = (fn) => hari.filter(fn).length;
   const ubin = [
-    { label: "Hadir", nilai: hitung((h) => h.masuk), warna: "bg-pastel-hijau" },
+    { label: "Hadir", nilai: hitung((h) => h.masuk || h.pulang), warna: "bg-pastel-hijau" },
     { label: "Terlambat", nilai: hitung((h) => h.masuk?.status === "terlambat"), warna: "bg-pastel-jingga" },
     { label: "Pulang cepat", nilai: hitung((h) => h.pulang?.status === "pulang_cepat"), warna: "bg-pastel-ungu" },
   ];
