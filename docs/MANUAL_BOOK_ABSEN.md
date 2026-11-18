@@ -76,6 +76,9 @@ Semua jam yang tampil dan tercatat di aplikasi menggunakan **jam server dalam Wa
 
 # BAB II MEMULAI APLIKASI
 
+**Tujuan:** membuka aplikasi, masuk, dan keluar dari Aplikasi ABSEN.
+**Pengguna:** seluruh pegawai yang memiliki akun.
+
 ## 2.1 Membuka Aplikasi
 
 1. Buka **Google Chrome** di HP.
@@ -126,7 +129,7 @@ Setelah berhasil masuk, aplikasi mengingat akun Anda sehingga tidak perlu login 
 3. Isi kolom **Kata sandi** dengan kode pemulihan dari Admin.
 4. Ketuk **Masuk**.
 
-Penggantian kata sandi dilakukan oleh Admin. Aplikasi ABSEN belum menyediakan menu ganti kata sandi sendiri.
+> Penggantian kata sandi dilakukan oleh Admin. Aplikasi ABSEN belum menyediakan menu ganti kata sandi sendiri.
 
 ## 2.5 Keluar dari Aplikasi (Logout)
 
@@ -145,9 +148,10 @@ Demi keamanan, sesi login memiliki batas waktu. Apabila sesi tidak dapat diperpa
 
 # BAB III BERANDA
 
-## 3.1 Bagian-bagian Beranda
-
 **Tujuan:** melihat jadwal dan status absen hari ini serta memulai absen.
+**Pengguna:** seluruh pegawai.
+
+## 3.1 Bagian-bagian Beranda
 
 Beranda terdiri atas:
 
@@ -197,6 +201,9 @@ Label status pada jalur Masuk – Pulang:
 Ketuk ikon **matahari/bulan** di pojok kanan atas Beranda (atau pada menu Profile) untuk berganti antara tema **terang** dan **gelap**. Pilihan tema tersimpan di HP.
 
 # BAB IV ABSEN MASUK DAN PULANG
+
+**Tujuan:** mencatat kehadiran harian melalui foto wajah dan lokasi GPS.
+**Pengguna:** seluruh pegawai yang foto wajahnya telah didaftarkan Admin.
 
 ## 4.1 Aturan Absen
 
@@ -257,7 +264,9 @@ Apabila sudah absen masuk lalu mengajukan izin untuk hari yang sama (misalnya pu
 
 ## 4.6 Apabila Absen Gagal
 
-Pesan kegagalan muncul sebagai notifikasi merah dan layar absen tetap terbuka sehingga dapat langsung mencoba lagi. Setiap kegagalan tercatat otomatis dan dapat dilihat Admin.
+Pesan kegagalan muncul sebagai notifikasi merah dan layar absen tetap terbuka sehingga dapat langsung mencoba lagi.
+
+> Setiap kegagalan absen tercatat otomatis dan dapat dilihat oleh Admin.
 
 | Pesan | Penyebab dan Penanganan |
 |---|---|
@@ -285,9 +294,10 @@ Pesan kegagalan muncul sebagai notifikasi merah dan layar absen tetap terbuka se
 
 # BAB V RIWAYAT ABSEN
 
-## 5.1 Melihat Riwayat
-
 **Tujuan:** melihat catatan absen sendiri per bulan.
+**Pengguna:** seluruh pegawai.
+
+## 5.1 Melihat Riwayat
 
 1. Ketuk menu **Riwayat**.
 2. Riwayat bulan berjalan tampil, terbaru di atas.
@@ -323,6 +333,9 @@ Absen hasil koreksi pada hari libur atau hari tanpa jadwal tetap dihitung **Hadi
 [[GAMBAR SS-05-03 | Hari berlabel Koreksi | Tangkapan layar kartu hari dengan label biru "Koreksi" di kanan atas dan jam masuk hasil koreksi.]]
 
 # BAB VI PENGAJUAN IZIN DAN KOREKSI ABSEN
+
+**Tujuan:** mengajukan izin tidak masuk kerja dan koreksi absen yang terlewat.
+**Pengguna:** seluruh pegawai.
 
 ## 6.1 Jenis Pengajuan
 
@@ -440,11 +453,14 @@ Pengajuan hanya dapat dibatalkan selama berstatus **Menunggu**. Pengajuan tidak 
 3. Pada notifikasi **Batalkan pengajuan ini?**, ketuk **Ya, batalkan** (atau **Tidak** untuk membatalkan).
 4. Muncul notifikasi **Pengajuan dibatalkan** dan status berubah menjadi **Dibatalkan**.
 
-Setelah dibatalkan, tanggal yang sama dapat diajukan kembali.
+> Setelah dibatalkan, tanggal yang sama dapat diajukan kembali.
 
 [[GAMBAR SS-06-07 | Konfirmasi batal | Tangkapan layar Detail pengajuan berstatus Menunggu dengan tombol merah "Batalkan pengajuan" dan notifikasi "Batalkan pengajuan ini?" berisi tombol "Ya, batalkan" dan "Tidak".]]
 
 # BAB VII PROFILE
+
+**Tujuan:** melihat data akun dan mengatur tampilan aplikasi.
+**Pengguna:** seluruh pegawai.
 
 ## 7.1 Melihat Profile
 
@@ -456,7 +472,7 @@ Setelah dibatalkan, tanggal yang sama dapat diajukan kembali.
    - **Tema tampilan** (terang/gelap);
    - tombol **Keluar**.
 
-Perubahan data akun (nama, email, kata sandi) dilakukan oleh Admin.
+> Perubahan data akun (nama, email, kata sandi) dilakukan oleh Admin.
 
 [[GAMBAR SS-07-01 | Halaman Profile | Tangkapan layar halaman Profile: kartu inisial, nama, @username, baris Email dan Peran, baris Tema tampilan dengan tombol tema, dan tombol "Keluar".]]
 
