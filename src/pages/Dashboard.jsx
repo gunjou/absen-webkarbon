@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import {
   CalendarOff,
+  CalendarX,
   CircleCheck,
   FileText,
   LogIn,
@@ -40,9 +41,9 @@ function aksiHariIni(data, sekarang) {
   if (!data.pegawai?.face_enrolled) return { jenis: "wajah" };
   const jam = jamHHMM(sekarang);
   const { jadwal } = data;
-  if (data.masuk || (jadwal && jam >= jadwal.pulang)) {
-    return { jenis: "absen", absen: "pulang", cepat: !!jadwal && jam < jadwal.pulang };
-  }
+  if (data.masuk) return { jenis: "absen", absen: "pulang", cepat: !!jadwal && jam < jadwal.pulang };
+  // belum masuk & absen masuk sudah ditutup: server menolak pulang tanpa masuk → arahkan ke koreksi
+  if (jadwal && jam >= jadwal.pulang) return { jenis: "lupa_masuk" };
   if (jadwal && jam < jadwal.masuk_dibuka) return { jenis: "belum_dibuka" };
   return { jenis: "absen", absen: "masuk" };
 }
@@ -200,6 +201,8 @@ function AreaAksi({ aksi, data, onAbsen }) {
       return <Ubin ikon={CircleCheck} warna="bg-pastel-hijau" judul="Presensi hari ini lengkap" teks="Terima kasih, sampai jumpa besok." />;
     case "wajah":
       return <Ubin ikon={ScanFace} warna="bg-pastel-merah" judul="Wajah belum terdaftar" teks="Hubungi admin untuk pendaftaran wajah." />;
+    case "lupa_masuk":
+      return <Ubin ikon={CalendarX} warna="bg-pastel-jingga" judul="Belum absen masuk hari ini" teks="Absen masuk sudah ditutup. Ajukan koreksi absen lewat menu Izin." />;
     case "belum_dibuka":
       return (
         <button
